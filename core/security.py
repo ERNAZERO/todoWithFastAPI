@@ -7,10 +7,9 @@ from starlette import status
 from core.database import get_db
 from auth.models import User
 
-
-SECRET_KEY = 'dsfvsdfvwefISDVONDSjnwev'
+SECRET_KEY = 'sjdwmkmwek23emkoi3mp23m;km3p2km'
 ALGORITHM = 'HS256'
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
 pwd_context = CryptContext(schemes=['bcrypt'], deprecated="auto")
 
@@ -53,4 +52,5 @@ def decode_access_token(token: str):
         return decoded_token
     except JWTError:
         return None
+
 

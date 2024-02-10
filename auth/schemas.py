@@ -10,9 +10,18 @@ class UserRegistration(BaseModel):
     username: str
     email: str
     password: str
-    full_name: str
+
 
 
 class UserLogin(BaseModel):
     username: str
     password: str
+
+
+class UserProfile(BaseModel):
+    id: int
+    username: str
+    email: str
+
+    class Config:
+        from_attributes = True

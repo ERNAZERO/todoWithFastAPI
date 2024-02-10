@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-import auth
+from auth import router as authRouter
 from core.database import Base, engine
 
 app = FastAPI()
-app.include_router(auth.router)
+app.include_router(authRouter.router)
 
 
 def create_tables():
