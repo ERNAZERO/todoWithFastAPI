@@ -21,13 +21,6 @@ def register(user: UserRegistration, db: Session = Depends(get_db)):
     if existing_email:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='Email already registered')
 
-    # emailhunter_url = f'https://api.hunter.io/v2/email-verifier?email={user.email}&api_key={EMAILHUNTER_API_KEY}'
-    # response = requests.get(emailhunter_url)
-    # emailhunter_data = response.json()
-    #
-    # if emailhunter_data.get('data', {}).get('result') != 'valid':
-    #     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='Email does not exist')
-
     new_user = User(username=user.username, email=user.email)
     new_user.password = get_password_hash(user.password)
     db.add(new_user)

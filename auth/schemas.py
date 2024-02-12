@@ -25,3 +25,10 @@ class UserProfile(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+# {
+#   "username": "3rnazer0",
+#   "email": "erkinbekovernaz@gmail.com",
+#   "password": "Azilya2003"
+# }
